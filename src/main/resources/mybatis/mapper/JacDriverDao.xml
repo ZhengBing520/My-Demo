@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zb.service.dao.JacDriverDao">
+
+    <insert id="insertList">
+        INSERT INTO jac_driver (`id`, `td_id`, `fleet_id`, `avatar`, `driver_name`, `nick_name`, `mobile`,
+        `password`, `identity_card`, `sex`, `birthday`, `qq`, `email`, `address`, `driver_license`,
+        `license_valid_date`, `license_picture`, `quality_valid_date`, `default_vin`, `quality_picture`, `apply_status`,
+        `open_stolen`, `create_by`, `update_by`, `salt`) VALUES
+        <foreach collection="list" item="jacDriver" separator=",">
+            (#{jacDriver.id}, #{jacDriver.tdId}, #{jacDriver.fleetId}, #{jacDriver.avatar},
+            #{jacDriver.driverName},#{jacDriver.nickName},#{jacDriver.mobile},
+            #{jacDriver.password}, #{jacDriver.identityCard}, #{jacDriver.sex}, #{jacDriver.birthday},#{jacDriver.qq},
+            #{jacDriver.email}, #{jacDriver.address}, #{jacDriver.driverLicense},
+            #{jacDriver.licenseValidDate}, #{jacDriver.licensePicture}, #{jacDriver.qualityValidDate},
+            #{jacDriver.defaultVin}, #{jacDriver.qualityPicture},#{jacDriver.applyStatus},
+            #{jacDriver.openStolen}, #{jacDriver.createBy},#{jacDriver.updateBy},#{jacDriver.salt})
+        </foreach>
+    </insert>
+
+    <update id="update">
+        update driver set default_vin = #{vin} where id = #{id}
+    </update>
+</mapper>

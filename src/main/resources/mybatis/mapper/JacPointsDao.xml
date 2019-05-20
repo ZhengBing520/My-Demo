@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zb.service.dao.JacPointsDao">
+
+    <insert id="insertList">
+        INSERT INTO `jac_points` (`driver_id`, `account`, `total_point`, `consume_point`,
+        `create_time`, `update_time`, `create_by`, `update_by`)
+        VALUES
+        <foreach collection="list" item="jacPoints" separator=",">
+            (#{jacPoints.driverId}, #{jacPoints.account}, #{jacPoints.totalPoint}, #{jacPoints.consumePoint}, #{jacPoints.createTime},
+            #{jacPoints.updateTime}, #{jacPoints.createBy}, #{jacPoints.updateBy})
+        </foreach>
+    </insert>
+
+</mapper>

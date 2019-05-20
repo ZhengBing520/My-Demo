@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zb.service.dao.JacAlarmRecordDao">
+
+    <insert id="insertList">
+        INSERT INTO `jac_alarm_record` (`vin`, `alarm_type`, `alarm_content`, `plate_no`, `alarm_start_time`,
+        `alarm_end_time`, `alarm_value`, `alarm_threshold`, `beyond_threshold`, `model_id`, `customer_id`, `customer_name`,
+        `dealer_id`, `dealer_name`, `region_id`, `create_time`, `update_time`, `create_by`, `update_by`) VALUES
+        <foreach collection="list" item="jacAlarmRecord" separator=",">
+            (#{jacAlarmRecord.vin}, #{jacAlarmRecord.alarmType}, #{jacAlarmRecord.alarmContent}, #{jacAlarmRecord.plateNo},
+            #{jacAlarmRecord.alarmStartTime}, #{jacAlarmRecord.alarmEndTime}, #{jacAlarmRecord.alarmValue},
+            #{jacAlarmRecord.alarmThreshold}, #{jacAlarmRecord.beyondThreshold},
+            #{jacAlarmRecord.modelId}, #{jacAlarmRecord.customerId}, #{jacAlarmRecord.customerName},
+            #{jacAlarmRecord.dealerId},
+            #{jacAlarmRecord.dealerName}, #{jacAlarmRecord.regionId}, #{jacAlarmRecord.createTime},
+            #{jacAlarmRecord.updateTime}, #{jacAlarmRecord.createBy}, #{jacAlarmRecord.updateBy})
+        </foreach>
+    </insert>
+
+</mapper>

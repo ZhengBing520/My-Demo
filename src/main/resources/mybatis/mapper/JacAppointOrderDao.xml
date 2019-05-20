@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zb.service.dao.JacAppointOrderDao">
+
+    <insert id="insertList">
+        INSERT INTO jac_appoint_order (`appoint_id`, `order_id`, `over_time`, `action_time`, `maintenance_name`, `maintenance_mil`,
+        `receive_name`, `total_cost`, `actual_cost`, `items`, `create_time`, `update_time`, `create_by`, `update_by`) VALUES
+        <foreach collection="list" item="jacAppointOrder" separator=",">
+            (#{jacAppointOrder.appointId}, #{jacAppointOrder.orderId}, #{jacAppointOrder.overTime}, #{jacAppointOrder.actionTime}, #{jacAppointOrder.maintenanceName}, #{jacAppointOrder.maintenanceMil},
+            #{jacAppointOrder.receiveName}, #{jacAppointOrder.totalCost}, #{jacAppointOrder.actualCost}, #{jacAppointOrder.items}, #{jacAppointOrder.createTime},
+            #{jacAppointOrder.updateTime}, #{jacAppointOrder.createBy}, #{jacAppointOrder.updateBy})
+        </foreach>
+    </insert>
+
+</mapper>

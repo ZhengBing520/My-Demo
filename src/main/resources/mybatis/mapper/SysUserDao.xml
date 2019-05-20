@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zb.service.dao.SysUserDao">
+
+    <insert id="insertList">
+        INSERT INTO `sys_user` (`id`, `username`, `password`, `head_picture`, `real_name`, `nick_name`, `mobile`,
+        `identity_card`, `sex`, `org_type`, `org_id`, `org_name`, `motorcade_id`, `status`, `qq`, `function`, `email`,
+        `address`, `create_time`, `update_time`, `create_by`, `update_by`, `salt`) VALUES
+        <foreach collection="list" item="sysUser" separator=",">
+            (#{sysUser.id}, #{sysUser.username}, #{sysUser.password}, #{sysUser.headPicture}, #{sysUser.realName},
+            #{sysUser.nickName}, #{sysUser.mobile}, #{sysUser.identityCard}, #{sysUser.sex},
+            #{sysUser.orgType}, #{sysUser.orgId}, #{sysUser.orgName}, #{sysUser.motorcadeId}, #{sysUser.status},
+            #{sysUser.qq}, #{sysUser.function}, #{sysUser.email}, #{sysUser.address}, #{sysUser.createTime},
+            #{sysUser.updateTime}, #{sysUser.createBy}, #{sysUser.updateBy},#{sysUser.salt})
+        </foreach>
+    </insert>
+</mapper>

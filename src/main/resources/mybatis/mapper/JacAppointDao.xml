@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zb.service.dao.JacAppointDao">
+
+    <insert id="insertList">
+        INSERT INTO `jac_appoint` (`vin`, `plate_no`, `appoint_type`, `appoint_time`, `driver_id`,
+        `driver_name`, `appoint_service_id`, `appoint_service_name`, `dealer_id`, `dealer_name`, `motorcade_id`,
+        `motorcade_name`, `state`, `note`, `create_time`, `update_time`, `create_by`, `update_by`) VALUES
+        <foreach collection="list" item="jacAppoint" separator=",">
+            (#{jacAppoint.vin}, #{jacAppoint.plateNo}, #{jacAppoint.appointType}, #{jacAppoint.appointTime}, #{jacAppoint.driverId},
+            #{jacAppoint.driverName}, #{jacAppoint.appointServiceId}, #{jacAppoint.appointServiceName}, #{jacAppoint.dealerId}, #{jacAppoint.dealerName}, #{jacAppoint.motorcadeId},
+            #{jacAppoint.motorcadeName}, #{jacAppoint.state}, #{jacAppoint.note}, #{jacAppoint.createTime},
+            #{jacAppoint.updateTime}, #{jacAppoint.createBy}, #{jacAppoint.updateBy})
+        </foreach>
+    </insert>
+
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zb.service.dao.SysOrgDealerDao">
+
+    <insert id="insertList">
+        INSERT INTO sys_org_dealer (`id`, `parent_id`, `dealer_file_path`, `dealer_name`, `simple_name`, `province_code`, `province_name`,
+        `city_code`, `city_name`, `area_code`, `area_name`, `dealer_code`, `dealer_addr`, `brand_type`, `hotline`, `leader_name`,
+        `leader_mobile`, `remark`, `longitude`, `latitude`, `cover_radius`, `service_radius`, `market_region`, `status`, `create_time`,
+        `update_time`, `create_by`, `update_by`, `security_pwd`, `pwd_status`, `salt`)
+        VALUES
+        <foreach collection="list" item="sysOrgDealer" separator=",">
+            (#{sysOrgDealer.id}, #{sysOrgDealer.parentId}, #{sysOrgDealer.dealerFilePath}, #{sysOrgDealer.dealerName}, #{sysOrgDealer.simpleName}, #{sysOrgDealer.provinceCode}, #{sysOrgDealer.provinceName},
+            #{sysOrgDealer.cityCode}, #{sysOrgDealer.cityName}, #{sysOrgDealer.areaCode}, #{sysOrgDealer.areaName}, #{sysOrgDealer.dealerCode}, #{sysOrgDealer.dealerAddr}, #{sysOrgDealer.brandType}, #{sysOrgDealer.hotline}, #{sysOrgDealer.leaderName},
+            #{sysOrgDealer.leaderMobile}, #{sysOrgDealer.remark}, #{sysOrgDealer.longitude}, #{sysOrgDealer.latitude}, #{sysOrgDealer.coverRadius}, #{sysOrgDealer.serviceRadius}, #{sysOrgDealer.marketRegion}, #{sysOrgDealer.status}, #{sysOrgDealer.createTime},
+            #{sysOrgDealer.updateTime}, #{sysOrgDealer.createBy}, #{sysOrgDealer.updateBy}, #{sysOrgDealer.securityPwd}, #{sysOrgDealer.pwdStatus}, #{sysOrgDealer.salt})
+        </foreach>
+    </insert>
+
+</mapper>
